@@ -13,6 +13,7 @@ class Navbar extends React.Component {
         <Menu.Item
           name='logout'
           onClick={ () => handleLogout(this.props.history) }
+          
         />
       </Menu.Menu>
     )
@@ -49,6 +50,7 @@ class Navbar extends React.Component {
               active={this.props.location.pathname === '/'}
             />
           </Link>
+        { this.rightNavItems() }
         </Menu>
       </div>
     )
