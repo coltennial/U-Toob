@@ -2,6 +2,7 @@ import React, { Fragment, } from 'react';
 import { Switch, Route, } from 'react-router-dom';
 import { Container, } from 'semantic-ui-react';
 import Home from './components/Home';
+import Navbar from './components/Navbar';
 
 const App = () => (
 <Fragment>
@@ -11,7 +12,7 @@ const App = () => (
       <Route exact path='/' component={Home} />
       <Route exact path='/' component={Home} />
       <Route exact path='/' component={Home} />
-      <Route component={NoMatch} />
+      {/* <Route component={NoMatch} /> */}
     </Switch>
   </Container>
 </Fragment>
