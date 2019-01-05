@@ -43,7 +43,7 @@ class Login extends React.Component {
             onChange={this.handleChange}
           />
           <Segment textAlign='center' basic>
-            <Button primary type='submit'>Submit</Button>
+            <Button basic color='black' type='submit'>Submit</Button>
           </Segment>
         </Form>
       </Segment>
