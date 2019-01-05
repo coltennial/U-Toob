@@ -1,6 +1,7 @@
 import React from 'react';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
+import Iframe from 'react-iframe'
 import { Header, Image, Card, Button, Icon } from 'semantic-ui-react';
 
 class Home extends React.Component {
@@ -11,45 +12,34 @@ class Home extends React.Component {
       .then( res => this.setState({ videos: res.data }))
   }
 
-  sample = () => {
-    const {videos} = this.state;
-    if (videos.length) {
-      const index = Math.floor(Math.random() * videos.length);
-      return videos[index];
-    } else {
-      return null;
-    }
+  renderVideos = () => {
+    return this.state.videos.map( v =>(
+      <div>
+        <p>{v.title}</p>
+        <p>{v.duration}</p>
+        <p>{v.genre}</p>
+        <p>{v.description}</p>
+        <p>{v.url}</p>
+        <Iframe 
+        url={v.url}
+        width="450px"
+        height="450px"
+        id="myId"
+        className="myClassname"
+        display="initial"
+        position="relative"
+        allowFullScreen
+        />
+      </div>
+    ))
   }
 
   render() {
-    const video = this.sample();
-    if (video) {
       return (
         <div>
-          <br />
-          <Header as='h1'>U-TOOB</Header>
-          <br />
-          <Card key={video.id}>
-            <Card.Content>
-              <Card.Header>
-                Video Name
-              </Card.Header>
-              <Card.Description>
-                Video Description
-              </Card.Description>
-              <Card.Meta>
-                Registry
-              </Card.Meta>
-            </Card.Content>
-            <Link to='/my_videos'>
-              My Videos
-            </Link>
-          </Card>
+          {this.renderVideos()}
         </div>
-      )
-    } else {
-      return <h2> No Videos To Display </h2>
-    }
+    )
   }
 }
 
