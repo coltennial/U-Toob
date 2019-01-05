@@ -32,6 +32,8 @@ gem 'devise_token_auth'
 
 group :development, :test do
   gem 'pry'
+  gem 'faker', :git => 'https://github.com/stympy/faker.git', :branch => 'master'
+
 end
 
 group :development do
