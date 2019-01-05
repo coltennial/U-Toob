@@ -7,15 +7,18 @@ import NoMatch from './components/NoMatch';
 
 const App = () => (
 <Fragment>
-  {/*  <Navbar /> */}
+  <Navbar />
+  <FetchUser>
+
   <Container>
     <Switch>
-      <Route exact path='/' component={Home} />
+      <ProtectedRoute exact path='/' component={Home} />
       <Route exact path='/' component={Home} />
       <Route exact path='/' component={Home} />
       {/* <Route component={NoMatch} /> */}
     </Switch>
   </Container>
+  </FetchUser>
 </Fragment>
 )
 
